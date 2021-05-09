@@ -4,17 +4,12 @@
    <body>
        <header><h1><a href="/">Django Girls Blog</a></h1>
     </header>
-
-    <article>
-        <time>publish: 09.05.2021, 13:17</time>
-        <h2><a href="">My first post</a></h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sunt iusto odio, porro impedit illo perspiciatis dolores mollitia accusamus corrupti necessitatibus sed! Cumque tempora necessitatibus repellendus doloribus, iure quam nostrum!</p>
-    </article>
-
-    <article>
-        <time>published: 09.05.2021, 13,18</time>
-        <h2><a href="">My second post</a></h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem natus odio rem omnis obcaecati dolore perspiciatis voluptate aut. In dolores, officiis quae incidunt perferendis mollitia sapiente ad quasi temporibus dolore?</p>
-    </article>
+    {% for post in posts %}
+       <article>
+           <time> published: {{post.published_date}}</time>
+           <h2><a href="">{{post.title}}</a></h2>
+           <p>{{post.text|linebreaksbr}}</p>
+       </article>
+    {% endfor %}
    </body>
 </html>
